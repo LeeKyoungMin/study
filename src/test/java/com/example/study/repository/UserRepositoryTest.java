@@ -1,3 +1,4 @@
+/*
 package com.example.study.repository;
 
 import com.example.study.StudyApplication;
@@ -77,3 +78,4 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     }
 }
+*/

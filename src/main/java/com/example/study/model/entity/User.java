@@ -13,14 +13,15 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@ToString(exclude = {"orderGroup"})
+@ToString(exclude = {"orderGroupList"})
 @EntityListeners(AuditingEntityListener.class)
 @Builder
-@Accessors(chain=true)
+@Accessors(chain = true)
 public class User {
 
     @Id
@@ -32,7 +33,7 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private UserStatus status; // REGISTERED / UNREGISTERED / WAITING /
+    private UserStatus status;  // REGISTERED / UNREGISTERED/ WAITING /
 
     private String email;
 
@@ -54,6 +55,7 @@ public class User {
     @LastModifiedBy
     private String updatedBy;
 
+    // User 1 : N OrderGroup
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<OrderGroup> orderGroupList;
 

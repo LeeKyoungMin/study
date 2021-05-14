@@ -1,10 +1,8 @@
 package com.example.study.model.entity;
 
 import com.example.study.model.enumclass.OrderType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -20,8 +18,10 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@ToString(exclude = {"user", "orderDetailList"})
+@ToString(exclude = {"user","orderDetailList"})
 @EntityListeners(AuditingEntityListener.class)
+@Builder
+@Accessors(chain = true)
 public class OrderGroup {
 
     @Id
@@ -59,10 +59,12 @@ public class OrderGroup {
     @LastModifiedBy
     private String updatedBy;
 
+    // OrderGroup N : 1 User
     @ManyToOne
     private User user;
 
+
+    // OrderGroup 1 : N OrderDetail
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderGroup")
     private List<OrderDetail> orderDetailList;
-
 }

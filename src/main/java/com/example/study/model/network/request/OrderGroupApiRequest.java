@@ -13,8 +13,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class OrderGroupApiRequest {
 
@@ -36,14 +36,10 @@ public class OrderGroupApiRequest {
 
     private LocalDateTime orderAt;
 
-    private LocalDateTime arriveDate;
+    private LocalDateTime arrivalDate;
 
-    private LocalDateTime createdAt;
+    private Long userId;
 
-    private LocalDateTime createdBy;
 
-    private LocalDateTime updatedAt;
-
-    private LocalDateTime updatedBy;
 
 }

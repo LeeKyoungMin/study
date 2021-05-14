@@ -13,7 +13,7 @@ public class AdminMenuService {
 
         return Arrays.asList(
                 AdminMenu.builder().title("고객 관리").url("/pages/user").code("user").build()
-        );
+         );
 
     }
 

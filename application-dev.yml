@@ -14,7 +14,7 @@ spring:
             postLogger: true
       routes:
         - id: member-service
-          uri: http://localhost:9094/
+          uri: http://localhost:8084/
           #uri: lb://MEMBER-SERVICE
           predicates:
             - Path=/member/**
